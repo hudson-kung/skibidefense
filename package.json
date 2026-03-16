@@ -1,0 +1,16 @@
+{
+  "name": "quick-nav-page",
+  "version": "1.0.0",
+  "description": "A simple page with quick navigation bar layout",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "build": "echo 'No build step needed for static site'"
+  },
+  "keywords": ["vercel", "static", "navigation", "html"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}
