@@ -1,14 +1,14 @@
-# Quick Nav Page
+# Skibi Defense
 
-A simple, responsive page with a quick navigation bar layout, optimized for Vercel deployment.
+A hero page for the Skibi Defense game, featuring a modern gradient design and smooth animations.
 
 ## Features
 
-- Responsive navigation bar with smooth scrolling
-- Modern gradient hero section
-- Card-based content layout
+- Modern gradient hero section with glowing title
+- Smooth animations and transitions
+- Feature cards showcasing game aspects
 - Mobile-friendly design
-- Vercel-ready configuration
+- Glass-morphism design elements
 
 ## Deployment
 

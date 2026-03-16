@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quick Nav Page</title>
+    <title>Skibi Defense</title>
     <style>
         * {
             margin: 0;
@@ -15,161 +15,153 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #333;
-        }
-
-        .navbar {
-            background: #2c3e50;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-brand {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            background-color: #34495e;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
 
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 6rem 2rem;
-            text-align: center;
-            min-height: 80vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .hero p {
-            font-size: 1.8rem;
-            opacity: 0.9;
-            font-style: italic;
-        }
-
-        .content {
-            max-width: 1200px;
-            margin: 0 auto;
+            align-items: center;
+            text-align: center;
+            color: white;
             padding: 2rem;
         }
 
-        .section {
-            margin-bottom: 3rem;
+        .hero h1 {
+            font-size: clamp(2rem, 8vw, 5rem);
+            margin-bottom: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            animation: glow 2s ease-in-out infinite alternate;
         }
 
-        .section h2 {
-            color: #2c3e50;
+        @keyframes glow {
+            from { text-shadow: 3px 3px 6px rgba(0,0,0,0.3), 0 0 10px rgba(255,255,255,0.3); }
+            to { text-shadow: 3px 3px 6px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.5); }
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.8rem);
+            opacity: 0.9;
+            font-style: italic;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 0.9; transform: translateY(0); }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .features {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
 
-        .card {
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        .feature-card h3 {
+            font-size: 1.5rem;
             margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .feature-card p {
+            opacity: 0.8;
+            line-height: 1.6;
         }
 
         @media (max-width: 768px) {
-            .nav-menu {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
             .hero h1 {
-                font-size: 2rem;
+                letter-spacing: 1px;
             }
-
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
+            
+            .features {
+                grid-template-columns: 1fr;
+                padding: 2rem 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="nav-brand">QuickNav</a>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <section class="hero" id="home">
+    <section class="hero">
         <h1>Skibi Defense</h1>
         <p>by hudson</p>
+        <a href="#features" class="cta-button">Explore Features</a>
     </section>
 
-    <main class="content">
-        <section class="section" id="about">
-            <h2>About</h2>
-            <div class="card">
-                <p>This is a simple page with a quick navigation bar layout. The navbar is responsive and includes smooth hover effects.</p>
-            </div>
-        </section>
-
-        <section class="section" id="services">
-            <h2>Services</h2>
-            <div class="card">
-                <h3>Web Development</h3>
-                <p>Creating modern, responsive web applications with clean navigation.</p>
-            </div>
-            <div class="card">
-                <h3>UI/UX Design</h3>
-                <p>Designing intuitive user interfaces with great user experience.</p>
-            </div>
-        </section>
-
-        <section class="section" id="contact">
-            <h2>Contact</h2>
-            <div class="card">
-                <p>Get in touch with us for your next project!</p>
-                <p>Email: hello@quicknav.com</p>
-            </div>
-        </section>
-    </main>
+    <section class="features" id="features">
+        <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h3>Defense Strategy</h3>
+            <p>Build your ultimate defense and protect your territory from incoming threats.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">⚔️</div>
+            <h3>Battle System</h3>
+            <p>Engage in epic battles with advanced combat mechanics and strategic gameplay.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🏆</div>
+            <h3>Competitive Mode</h3>
+            <p>Compete against players worldwide and climb the leaderboard to victory.</p>
+        </div>
+    </section>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
