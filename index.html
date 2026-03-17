@@ -404,10 +404,6 @@
                 <label for="versusTokens">Total Versus Tokens</label>
                 <div class="output-display" id="versusTokens">0</div>
             </div>
-            <div class="checkpoint-details" id="checkpointDetails">
-                <h3>Checkpoint Breakdown</h3>
-                <div id="checkpointList"></div>
-            </div>
         </div>
     </section>
 
@@ -436,7 +432,6 @@
         // Versus Calculator logic
         const wavesInput = document.getElementById('waves');
         const versusTokensOutput = document.getElementById('versusTokens');
-        const checkpointList = document.getElementById('checkpointList');
 
         // Known checkpoint data from testing
         const knownCheckpoints = {
@@ -480,7 +475,7 @@
                 const index = pattern.indexOf(wave);
                 if (index !== -1) return tokens[index];
                 
-                // For waves beyond 150, continue the pattern
+                // For waves beyond 150, continue pattern
                 if (wave >= 155) {
                     return 26 + Math.floor((wave - 150) / 5);
                 }
@@ -491,60 +486,26 @@
 
         function calculateTotalTokens(targetWave) {
             let totalTokens = 0;
-            const checkpoints = [];
             
             // Calculate checkpoints up to target wave
             for (let wave = 5; wave <= targetWave; wave += 5) {
                 const tokens = getCheckpointTokens(wave);
                 if (tokens > 0) {
                     totalTokens += tokens;
-                    checkpoints.push({ wave, tokens, runningTotal: totalTokens });
                 }
             }
             
-            return { totalTokens, checkpoints };
+            return totalTokens;
         }
 
         function updateCalculator() {
             const targetWave = parseInt(wavesInput.value) || 0;
-            const result = calculateTotalTokens(targetWave);
+            const totalTokens = calculateTotalTokens(targetWave);
             
-            versusTokensOutput.textContent = result.totalTokens;
-            
-            // Update checkpoint list
-            checkpointList.innerHTML = '';
-            result.checkpoints.forEach(cp => {
-                const item = document.createElement('div');
-                item.className = 'checkpoint-item';
-                item.innerHTML = `
-                    <span class="checkpoint-wave">Wave ${cp.wave}</span>
-                    <span class="checkpoint-tokens">+${cp.tokens}</span>
-                    <span class="running-total">Total: ${cp.runningTotal}</span>
-                `;
-                checkpointList.appendChild(item);
-            });
-            
-            // Add pattern explanation
-            const explanation = document.createElement('div');
-            explanation.className = 'pattern-explanation';
-            explanation.innerHTML = `
-                <p><strong>Pattern Analysis:</strong> Based on test data and ChatGPT's calculations, rewards increase every 5 waves. 
-                Early waves (5-25) give 1-2 tokens, mid waves (30-55) give 3-7 tokens, and later waves (60+) give +1 token every 5 waves. 
-                Wave 100 gives 16 tokens at that checkpoint for a total of 139 tokens from all checkpoints.</p>
-            `;
-            checkpointList.appendChild(explanation);
+            versusTokensOutput.textContent = totalTokens;
         }
 
         wavesInput.addEventListener('input', updateCalculator);
-
-        // Calculate for wave 100 as example
-        function showWave100Example() {
-            const wave100Result = calculateTotalTokens(100);
-            console.log('Wave 100 Total Tokens:', wave100Result.totalTokens);
-            console.log('Checkpoints:', wave100Result.checkpoints);
-        }
-
-        showWave100Example();
 
         // Show home section by default
         document.getElementById('home').style.display = 'flex';
