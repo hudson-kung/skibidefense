@@ -384,6 +384,9 @@
                 <li class="nav-item">
                     <a href="#versus" class="nav-link">Versus Calculator</a>
                 </li>
+                <li class="nav-item">
+                    <a href="#chapters" class="nav-link">Chapters</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -404,6 +407,13 @@
                 <label for="versusTokens">Total Versus Tokens</label>
                 <div class="output-display" id="versusTokens">0</div>
             </div>
+        </div>
+    </section>
+
+    <section class="hero" id="chapters" style="display: none;">
+        <div class="calculator-container">
+            <h2>Chapters</h2>
+            <p>Chapter information coming soon...</p>
         </div>
     </section>
 
@@ -487,8 +497,13 @@
         function calculateTotalTokens(targetWave) {
             let totalTokens = 0;
             
+            // Only calculate tokens for waves 30 and above
+            if (targetWave < 30) {
+                return 0;
+            }
+            
             // Calculate checkpoints up to target wave
-            for (let wave = 5; wave <= targetWave; wave += 5) {
+            for (let wave = 30; wave <= targetWave; wave += 5) {
                 const tokens = getCheckpointTokens(wave);
                 if (tokens > 0) {
                     totalTokens += tokens;
