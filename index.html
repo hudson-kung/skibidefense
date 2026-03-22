@@ -372,14 +372,30 @@
 
         .chapter-content {
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
         }
 
         .chapter-image {
-            max-width: 100%;
+            max-width: 150px;
             height: auto;
             border-radius: 15px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.5rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .chapter-image:hover {
+            transform: scale(1.05);
+        }
+
+        .images-row {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .chapter-content h3 {
@@ -464,12 +480,16 @@
         <div class="calculator-container">
             <h2>YouTube</h2>
             <div class="chapter-content">
-                <img src="images/channels4_profile (2).jpg" alt="YouTube Channel Profile Main" class="chapter-image">
-                <p class="image-caption">The Monocle Man</p>
-                <img src="images/channels4_profile.jpg" alt="YouTube Channel Profile" class="chapter-image">
-                <p class="image-caption">Koree</p>
-                <img src="images/channels4_profile (1).jpg" alt="YouTube Channel Profile 2" class="chapter-image">
-                <p class="image-caption">Shary</p>
+                <div class="images-row">
+                    <img src="images/channels4_profile (2).jpg" alt="YouTube Channel Profile Main" class="chapter-image">
+                    <img src="images/channels4_profile.jpg" alt="YouTube Channel Profile" class="chapter-image">
+                    <img src="images/channels4_profile (1).jpg" alt="YouTube Channel Profile 2" class="chapter-image">
+                </div>
+                <div class="images-row">
+                    <p class="image-caption">The Monocle Man</p>
+                    <p class="image-caption">Koree</p>
+                    <p class="image-caption">Shary</p>
+                </div>
                 <h3>YouTube Channel</h3>
                 <p>YouTube content coming soon...</p>
             </div>
