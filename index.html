@@ -405,6 +405,16 @@
             gap: 0.5rem;
         }
 
+        .channel-link {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .channel-link:hover .chapter-image {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
         .videos-section {
             margin-bottom: 2rem;
             text-align: center;
@@ -564,15 +574,21 @@
                 <h3>Channels</h3>
                 <div class="images-row">
                     <div class="image-with-caption">
-                        <img src="images/channels4_profile (2).jpg" alt="YouTube Channel Profile Main" class="chapter-image">
+                        <a href="https://www.youtube.com/@TheMonocleManYT" target="_blank" class="channel-link">
+                            <img src="images/channels4_profile (2).jpg" alt="YouTube Channel Profile Main" class="chapter-image">
+                        </a>
                         <p class="image-caption">The Monocle Man</p>
                     </div>
                     <div class="image-with-caption">
-                        <img src="images/channels4_profile.jpg" alt="YouTube Channel Profile" class="chapter-image">
+                        <a href="https://www.youtube.com/@korewado" target="_blank" class="channel-link">
+                            <img src="images/channels4_profile.jpg" alt="YouTube Channel Profile" class="chapter-image">
+                        </a>
                         <p class="image-caption">Koree</p>
                     </div>
                     <div class="image-with-caption">
-                        <img src="images/channels4_profile (1).jpg" alt="YouTube Channel Profile 2" class="chapter-image">
+                        <a href="https://www.youtube.com/@SharyTD" target="_blank" class="channel-link">
+                            <img src="images/channels4_profile (1).jpg" alt="YouTube Channel Profile 2" class="chapter-image">
+                        </a>
                         <p class="image-caption">Shary</p>
                     </div>
                 </div>
