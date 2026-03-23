@@ -398,6 +398,13 @@
             margin-bottom: 1.5rem;
         }
 
+        .image-with-caption {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
         .chapter-content h3 {
             color: white;
             font-size: 1.8rem;
@@ -481,14 +488,18 @@
             <h2>YouTube</h2>
             <div class="chapter-content">
                 <div class="images-row">
-                    <img src="images/channels4_profile (2).jpg" alt="YouTube Channel Profile Main" class="chapter-image">
-                    <img src="images/channels4_profile.jpg" alt="YouTube Channel Profile" class="chapter-image">
-                    <img src="images/channels4_profile (1).jpg" alt="YouTube Channel Profile 2" class="chapter-image">
-                </div>
-                <div class="images-row">
-                    <p class="image-caption">The Monocle Man</p>
-                    <p class="image-caption">Koree</p>
-                    <p class="image-caption">Shary</p>
+                    <div class="image-with-caption">
+                        <img src="images/channels4_profile (2).jpg" alt="YouTube Channel Profile Main" class="chapter-image">
+                        <p class="image-caption">The Monocle Man</p>
+                    </div>
+                    <div class="image-with-caption">
+                        <img src="images/channels4_profile.jpg" alt="YouTube Channel Profile" class="chapter-image">
+                        <p class="image-caption">Koree</p>
+                    </div>
+                    <div class="image-with-caption">
+                        <img src="images/channels4_profile (1).jpg" alt="YouTube Channel Profile 2" class="chapter-image">
+                        <p class="image-caption">Shary</p>
+                    </div>
                 </div>
                 <h3>YouTube Channel</h3>
                 <p>YouTube content coming soon...</p>
