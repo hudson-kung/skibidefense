@@ -427,6 +427,17 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
+        .videos-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .videos-row .video-container {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
         .video-iframe {
             width: 100%;
             height: 315px;
@@ -518,25 +529,37 @@
             <div class="chapter-content">
                 <div class="videos-section">
                     <h3>Latest Videos</h3>
-                    <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/YGhVKVXkPUg?start=15" 
-                            title="YouTube video player" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen
-                            class="video-iframe">
-                        </iframe>
-                    </div>
-                    <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/K9LSfuL5XCE" 
-                            title="YouTube video player" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen
-                            class="video-iframe">
-                        </iframe>
+                    <div class="videos-row">
+                        <div class="video-container">
+                            <iframe 
+                                src="https://www.youtube.com/embed/YGhVKVXkPUg?start=15" 
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen
+                                class="video-iframe">
+                            </iframe>
+                        </div>
+                        <div class="video-container">
+                            <iframe 
+                                src="https://www.youtube.com/embed/K9LSfuL5XCE" 
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen
+                                class="video-iframe">
+                            </iframe>
+                        </div>
+                        <div class="video-container">
+                            <iframe 
+                                src="https://www.youtube.com/embed/b9TB6XuaEss" 
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen
+                                class="video-iframe">
+                            </iframe>
+                        </div>
                     </div>
                 </div>
                 <div class="images-row">
